@@ -52,6 +52,33 @@ class LinkedList {
       this.size++;
     }
   }
+
+
+  printAll(){
+    let current=this.head;
+    while(current!=null){
+      console.log(current.value);
+      current=current.next;
+    }
+  }
+
+  deleteNode(elementValue){
+    let current=this.head, prev=null;
+    if(current.value==elementValue){
+      this.head=current.next;
+    }else{
+      while(current.value!=elementValue){
+        prev=current;
+        current=current.next;
+      }
+
+      prev.next=current.next;
+
+    }
+
+    this.printAll();
+  }
+
 }
 
 const l1 = new LinkedList(200);
@@ -60,4 +87,7 @@ l1.appendNode(500);
 l1.appendNode(600);
 l1.appendNode(700);
 l1.insertNodeAtNth(2, 450);
+// l1.printAll()
+// l1.deleteNode(600)
+// l1.deleteNode(200)
 console.log(l1);
